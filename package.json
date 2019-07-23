@@ -1,0 +1,8 @@
+{
+	"name": "edgar-search-client",
+	"version": "1.0.0",
+	"description": "A search client for the SEC's Electronic Data Gathering, Analysis, and Retrieval (EDGAR) system.",
+	"main": "index.js",
+	"author": "Erik Eppel",
+	"license": "MIT"
+}
