@@ -1,8 +1,35 @@
 {
-	"name": "edgar-search-client",
-	"version": "1.0.0",
-	"description": "A search client for the SEC's Electronic Data Gathering, Analysis, and Retrieval (EDGAR) system.",
-	"main": "index.js",
-	"author": "Erik Eppel",
-	"license": "MIT"
+  "name": "edgar-search-client",
+  "version": "1.0.0",
+  "description": "A search client for the SEC's Electronic Data Gathering, Analysis, and Retrieval (EDGAR) system.",
+  "main": "index.js",
+  "author": "Erik Eppel",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn run clean && babel server --out-dir dist --extensions \".ts\"",
+    "watch": "babel server --out-dir dist --extensions \".ts\" --watch",
+    "clean": "rimraf dist",
+    "serve": "nodemon dist/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/runtime": "^7.5.5",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.0",
+    "@types/node-fetch": "^2.3.7",
+    "nodemon": "^1.19.1",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.5.3"
+  }
 }
