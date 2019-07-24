@@ -12,6 +12,7 @@
     "serve": "nodemon dist/index.js"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0"
@@ -25,6 +26,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
     "@babel/runtime": "^7.5.5",
+    "@types/cheerio": "^0.22.12",
     "@types/dotenv": "^6.1.1",
     "@types/express": "^4.17.0",
     "@types/node-fetch": "^2.3.7",
