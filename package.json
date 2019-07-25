@@ -6,10 +6,10 @@
   "author": "Erik Eppel",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run clean && babel server --out-dir dist --extensions \".ts\"",
-    "watch": "babel server --out-dir dist --extensions \".ts\" --watch",
-    "clean": "rimraf dist",
-    "serve": "nodemon dist/index.js"
+    "build:api": "yarn run clean:api && babel api --out-dir dist-api --extensions \".ts\"",
+    "watch:api": "babel api --out-dir dist-api --extensions \".ts\" --watch",
+    "clean:api": "rimraf dist-api",
+    "serve:api": "nodemon dist-api/index.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",

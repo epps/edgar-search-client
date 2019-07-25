@@ -3,7 +3,7 @@ node_modules
 .DS_Store
 
 # Application
-dist
+dist-api
 notes.md
 
 #Environmental variables
