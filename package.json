@@ -9,13 +9,17 @@
     "build:api": "yarn run clean:api && babel api --out-dir dist-api --extensions \".ts\"",
     "watch:api": "babel api --out-dir dist-api --extensions \".ts\" --watch",
     "clean:api": "rimraf dist-api",
-    "serve:api": "nodemon dist-api/index.js"
+    "serve:api": "nodemon dist-api/index.js",
+    "lint:api": "eslint \"api/*.ts\" --quiet",
+    "lint:client": "eslint \"client/**/*.{js,jsx}\" --quiet"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -30,7 +34,16 @@
     "@types/dotenv": "^6.1.1",
     "@types/express": "^4.17.0",
     "@types/node-fetch": "^2.3.7",
+    "babel-eslint": "^10.0.2",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
     "typescript": "^3.5.3"
   }

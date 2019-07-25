@@ -4,6 +4,8 @@ node_modules
 
 # Application
 dist-api
+.cache
+dist
 notes.md
 
 #Environmental variables
