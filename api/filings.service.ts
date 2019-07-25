@@ -1,28 +1,31 @@
-import { DEFAULT_COUNT } from './constants';
+import { DEFAULT_COUNT } from "./constants";
 
-export function createFilingsResponse($: CheerioStatic, filingTypeTds: Cheerio) {
+export function createFilingsResponse(
+  $: CheerioStatic,
+  filingTypeTds: Cheerio
+) {
   const filings = [] as Array<IFilings>;
 
   filingTypeTds.each(function(i, element) {
     const type = $(element).text();
 
     const url = `https://www.sec.gov/${$(element)
-      .next('td')
-      .children('a')
-      .attr('href')}`;
+      .next("td")
+      .children("a")
+      .attr("href")}`;
 
     const description = $(element)
-      .siblings('td.small')
+      .siblings("td.small")
       .text();
 
     const date = $(element)
-      .siblings('td:nth-child(4)')
+      .siblings("td:nth-child(4)")
       .text();
 
     filings.push({ type, url, description, date });
   });
 
-  const [_, companyName, cik] = $('span.companyName')
+  const [_, companyName, cik] = $("span.companyName")
     .text()
     .match(/(.+) CIK#: (\d+)/) || [null, null, null];
 
@@ -42,8 +45,12 @@ export function parseQueryParams({ query }) {
   return { page, count, tickerSymbol };
 }
 
-export function createQueryString(tickerSymbol: string, page: number, count: number) {
-  const start = page > 1 ? --page * count : '';
+export function createQueryString(
+  tickerSymbol: string,
+  page: number,
+  count: number
+) {
+  const start = page > 1 ? --page * count : "";
 
   return `?CIK=${tickerSymbol.toLowerCase()}&action=getcompany&count=${count}&start=${start}`;
 }
