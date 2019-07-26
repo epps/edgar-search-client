@@ -1,6 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
+import FilingsSearch from "./FilingsSearch";
 
-const App = () => <h1>EDGAR Search Client</h1>;
+const App = () => {
+  return (
+    <div>
+      <FilingsSearch />
+    </div>
+  );
+};
 
 render(<App />, document.getElementById("app-root"));

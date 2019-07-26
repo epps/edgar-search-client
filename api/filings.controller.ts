@@ -35,5 +35,5 @@ export async function filingsController(req, res) {
     { page, count }
   );
 
-  res.json(filingsResponse);
+  res.header("Access-Control-Allow-Origin", "*").json(filingsResponse);
 }
