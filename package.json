@@ -1,50 +1,21 @@
 {
-  "name": "edgar-search-client",
+  "name": "edgar-search-monrepo",
   "version": "1.0.0",
-  "description": "A search client for the SEC's Electronic Data Gathering, Analysis, and Retrieval (EDGAR) system.",
+  "description": "A monrepo containing a search API and a web client for the SEC's EDGAR filings site.",
   "main": "index.js",
-  "author": "Erik Eppel",
+  "repository": "https://github.com/epps/edgar-search-client.git",
+  "author": "Erik Eppel <eceppel@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build:api": "yarn run clean:api && babel api --out-dir dist-api --extensions \".ts\"",
-    "watch:api": "babel api --out-dir dist-api --extensions \".ts\" --watch",
-    "clean:api": "rimraf dist-api",
-    "serve:api": "nodemon dist-api/index.js",
-    "lint:api": "eslint \"api/*.ts\" --quiet",
-    "lint:client": "eslint \"client/**/*.{js,jsx}\" --quiet"
-  },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
-    "dotenv": "^8.0.0",
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "build:api": "yarn --cwd \"./packages/api/\" run build",
+    "serve:api": "yarn --cwd \"./packages/api/\" run serve",
+    "watch:api": "yarn --cwd \"./packages/api/\" run watch",
+    "clean:api": "yarn --cwd \"./packages/api/\" run clean",
+    "build:web": "yarn --cwd \"./packages/web-client\" run build",
+    "serve:web": "yarn --cwd \"./packages/web-client/\" run serve",
+    "install:all": "yarn --cwd \"./packages/api/\" install && yarn --cwd \"./packages/web-client/\" install"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-typescript": "^7.3.3",
-    "@babel/runtime": "^7.5.5",
-    "@types/cheerio": "^0.22.12",
-    "@types/dotenv": "^6.1.1",
-    "@types/express": "^4.17.0",
-    "@types/node-fetch": "^2.3.7",
-    "babel-eslint": "^10.0.2",
-    "cross-env": "^5.2.0",
-    "eslint": "^6.0.1",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.2",
-    "eslint-plugin-react-hooks": "^1.6.1",
-    "nodemon": "^1.19.1",
-    "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
-    "typescript": "^3.5.3"
+    "prettier": "^1.18.2"
   }
 }
