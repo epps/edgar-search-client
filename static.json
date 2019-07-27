@@ -1,0 +1,5 @@
+{
+  "root": "packages/web-client/dist/",
+  "clean_urls": true,
+  "error_page": "{ \"root\": \"packages/web-client/\", \"clean_urls\"; true }"
+}
