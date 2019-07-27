@@ -4,6 +4,7 @@
   "main": "index.html",
   "license": "MIT",
   "scripts": {
+    "build": "parcel build ./index.html",
     "serve": "parcel ./index.html"
   },
   "devDependencies": {

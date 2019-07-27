@@ -11,6 +11,7 @@
     "serve:api": "yarn --cwd \"./packages/api/\" run serve",
     "watch:api": "yarn --cwd \"./packages/api/\" run watch",
     "clean:api": "yarn --cwd \"./packages/api/\" run clean",
+    "build:web": "yarn --cwd \"./packages/web-client\" run build",
     "serve:web": "yarn --cwd \"./packages/web-client/\" run serve",
     "install:all": "yarn --cwd \"./packages/api/\" install && yarn --cwd \"./packages/web-client/\" install"
   },
