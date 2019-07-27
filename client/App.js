@@ -4,7 +4,10 @@ import FilingsSearch from "./FilingsSearch";
 
 const App = () => {
   return (
-    <div>
+    <div className="app-container">
+      <div className="header">
+        <h1>EDGAR Search Client</h1>
+      </div>
       <FilingsSearch />
     </div>
   );

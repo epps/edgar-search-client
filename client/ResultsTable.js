@@ -3,9 +3,9 @@ import React from "react";
 const ResultsTable = ({ companyDetails, filings, page }) => {
   return (
     <div>
-      <div>
-        <h2>{companyDetails && companyDetails.name}</h2>
-        <h2>{companyDetails && companyDetails.cik}</h2>
+      <div className="results">
+        <h2>Company Name: {companyDetails && companyDetails.name}</h2>
+        <h2>CIK: {companyDetails && companyDetails.cik}</h2>
         <h3>Page {page}</h3>
       </div>
       <table className="pure-table pure-table-horizontal pure-table-striped">

@@ -65,44 +65,50 @@ const FilingsSearch = () => {
               >
                 Search
               </button>
-              {filings.length === 0 ? (
-                ""
-              ) : (
-                <div className="pure-button-group" role="group">
-                  <button
-                    className="pure-button"
-                    onClick={e => {
-                      setPage(page - 1);
-                      getFilings();
-                    }}
-                    hidden={page === 1}
-                  >
-                    <span>
-                      <i className="fas fa-angle-left"></i>
-                    </span>
-                    Previous Page
-                  </button>
-                  <button
-                    className="pure-button"
-                    onClick={e => {
-                      setPage(page + 1);
-                      getFilings();
-                    }}
-                  >
-                    Next Page
-                    <span>
-                      <i className="fas fa-angle-right"></i>
-                    </span>
-                  </button>
-                </div>
-              )}
             </div>
+            {filings.length === 0 ? (
+              ""
+            ) : (
+              <div
+                className="pure-button-group pagination-button-group"
+                role="group"
+              >
+                <button
+                  className="button-small button-secondary pure-button"
+                  onClick={e => {
+                    setPage(page - 1);
+                    getFilings();
+                  }}
+                  hidden={page === 1}
+                >
+                  <span className="previous-page-icon">
+                    <i className="fas fa-angle-left"></i>
+                  </span>
+                  Previous Page
+                </button>
+                <button
+                  className="button-small button-secondary pure-button"
+                  onClick={e => {
+                    setPage(page + 1);
+                    getFilings();
+                  }}
+                >
+                  Next Page
+                  <span className="next-page-icon">
+                    <i className="fas fa-angle-right"></i>
+                  </span>
+                </button>
+              </div>
+            )}
           </fieldset>
         </form>
       </div>
       <div className="pure-u-2-3">
         {filings.length === 0 ? (
-          <h2>No Results</h2>
+          <div className="results no-results-container">
+            <h2>No Results</h2>
+            <p>Enter company's ticker symbol to search for filings</p>
+          </div>
         ) : (
           <ResultsTable
             companyDetails={companyDetails}
