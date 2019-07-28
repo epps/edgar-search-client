@@ -22,92 +22,89 @@ const FilingsSearch = () => {
   }
 
   return (
-    <div className="pure-g">
-      <div className="pure-u-1-3">
+    <div className="row">
+      <div className="col-4">
         <form
           onSubmit={e => {
             e.preventDefault();
             getFilings();
           }}
-          className="pure-form pure-form-aligned"
+          className=""
         >
-          <fieldset>
-            <div className="pure-control-group">
-              <label htmlFor="tickerSymbol">Ticker Symbol</label>
-              <input
-                id="tickerSymbol"
-                value={tickerSymbol}
-                placeholder="Ticker Symbol"
-                onChange={e => setTickerSymbol(e.target.value)}
-                type="text"
-              />
-            </div>
-            <div className="pure-control-group">
-              <label htmlFor="count">Count</label>
-              <select
-                id="count"
-                value={count}
-                onChange={e => setCount(e.target.value)}
-                onBlur={e => setCount(e.target.value)}
-              >
-                {RESULT_COUNTS.map(c => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="pure-controls">
-              <button
-                type="submit"
-                className="pure-button pure-button-primary"
-                disabled={!tickerSymbol}
-              >
-                Search
-              </button>
-            </div>
-            {filings.length === 0 ? (
-              ""
-            ) : (
-              <div
-                className="pure-button-group pagination-button-group"
-                role="group"
-              >
+          <div className="form-group">
+            <label htmlFor="tickerSymbol">Ticker Symbol</label>
+            <input
+              id="tickerSymbol"
+              className="form-control"
+              value={tickerSymbol}
+              placeholder="Ticker Symbol"
+              onChange={e => setTickerSymbol(e.target.value)}
+              type="text"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="count">Count</label>
+            <select
+              id="count"
+              className="form-control"
+              value={count}
+              onChange={e => setCount(e.target.value)}
+              onBlur={e => setCount(e.target.value)}
+            >
+              {RESULT_COUNTS.map(c => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={!tickerSymbol}
+            >
+              Search
+            </button>
+          </div>
+          {filings.length === 0 ? (
+            ""
+          ) : (
+            <div className="text-right">
+              <div className="btn-group" role="group">
                 <button
-                  className="button-small button-secondary pure-button"
+                  type="button"
+                  className="btn btn-secondary"
                   onClick={e => {
                     setPage(page - 1);
                     getFilings();
                   }}
                   hidden={page === 1}
                 >
-                  <span className="previous-page-icon">
-                    <i className="fas fa-angle-left"></i>
-                  </span>
                   Previous Page
                 </button>
                 <button
-                  className="button-small button-secondary pure-button"
+                  type="button"
+                  className="btn btn-secondary"
                   onClick={e => {
                     setPage(page + 1);
                     getFilings();
                   }}
                 >
                   Next Page
-                  <span className="next-page-icon">
-                    <i className="fas fa-angle-right"></i>
-                  </span>
                 </button>
               </div>
-            )}
-          </fieldset>
+            </div>
+          )}
         </form>
       </div>
-      <div className="pure-u-2-3">
+      <div className="col-8">
         {filings.length === 0 ? (
-          <div className="results no-results-container">
+          <div className="text-center">
             <h2>No Results</h2>
-            <p>Enter company's ticker symbol to search for filings</p>
+            <p className="text-muted">
+              Enter company's ticker symbol to search for filings
+            </p>
           </div>
         ) : (
           <ResultsTable

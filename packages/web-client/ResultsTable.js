@@ -4,11 +4,21 @@ const ResultsTable = ({ companyDetails, filings, page }) => {
   return (
     <div>
       <div className="results">
-        <h2>Company Name: {companyDetails && companyDetails.name}</h2>
-        <h2>CIK: {companyDetails && companyDetails.cik}</h2>
-        <h3>Page {page}</h3>
+        <h2>
+          Company:{" "}
+          <span className="text-muted">
+            {companyDetails && companyDetails.name}
+          </span>
+        </h2>
+        <h3>
+          CIK:{" "}
+          <span className="text-muted">
+            {companyDetails && companyDetails.cik}
+          </span>
+        </h3>
+        <h5>Page {page}</h5>
       </div>
-      <table className="pure-table pure-table-horizontal pure-table-striped">
+      <table className="table tabel-borderless table-hover">
         <thead>
           <tr>
             <th>Type</th>

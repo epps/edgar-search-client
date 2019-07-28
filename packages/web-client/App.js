@@ -4,11 +4,15 @@ import FilingsSearch from "./FilingsSearch";
 
 const App = () => {
   return (
-    <div className="app-container">
-      <div className="header">
-        <h1>EDGAR Search Client</h1>
+    <div>
+      <nav className="navbar navbar-dark bg-dark">
+        <a href="#" className="navbar-brand">
+          EDGAR Search
+        </a>
+      </nav>
+      <div className="container-fluid app-container">
+        <FilingsSearch />
       </div>
-      <FilingsSearch />
     </div>
   );
 };
