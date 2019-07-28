@@ -17,7 +17,10 @@ export async function filingsController(req, res) {
     `${EDGAR_BASE_URL}${createQueryString(tickerSymbol, page, count)}`
   );
 
-  if (response.status !== 200) return res.status(response.status).end();
+  if (response.status !== 200)
+    return res
+      .status(response.status)
+      .json({ success: false, message: response.statusText });
 
   const body = await response.text();
   const $ = cheerio.load(body);
