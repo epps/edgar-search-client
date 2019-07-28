@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ResultsTable = ({ companyDetails, filings, page }) => {
   const { name, cik } = companyDetails;
@@ -37,6 +38,21 @@ const ResultsTable = ({ companyDetails, filings, page }) => {
       </table>
     </div>
   );
+};
+
+ResultsTable.propTypes = {
+  companyDetails: PropTypes.shape({
+    name: PropTypes.string,
+    cik: PropTypes.string
+  }),
+  filings: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string,
+      url: PropTypes.string,
+      date: PropTypes.string
+    })
+  ),
+  page: PropTypes.number
 };
 
 export default ResultsTable;
