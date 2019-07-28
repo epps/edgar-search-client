@@ -10,12 +10,14 @@
     "build:api": "yarn --cwd \"./packages/api/\" run build",
     "serve:api": "yarn --cwd \"./packages/api/\" run serve",
     "watch:api": "yarn --cwd \"./packages/api/\" run watch",
+    "run:api": "concurrently --kill-others \"yarn run watch:api\" \"yarn run serve:api\"",
     "clean:api": "yarn --cwd \"./packages/api/\" run clean",
     "build:web": "yarn --cwd \"./packages/web-client\" run build",
     "serve:web": "yarn --cwd \"./packages/web-client/\" run serve",
     "install:all": "yarn --cwd \"./packages/api/\" install && yarn --cwd \"./packages/web-client/\" install"
   },
   "devDependencies": {
+    "concurrently": "^4.1.1",
     "prettier": "^1.18.2"
   }
 }
