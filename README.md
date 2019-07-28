@@ -28,26 +28,17 @@ To install dependencies for all packages, run:
 
 ### API
 
-To run the filings search API locally, run
+To run the filings search API locally, run:
 
 ```shell
-> yarn run watch:api # executes the build process in watch mode
-> yarn run serve:api # start a server listing on http://localhost:3000
+> yarn run run:api
 ```
 
-Any changes to the code will be detected and the project will automatically recompile
+Any changes to the code will be detected and the project will automatically recompile.
 
 ### Web Client
 
-Given the web client isn't being served by the API project, running both projects in parallel will run up against the [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) restriction. There are several ways around this issue in local development, but for Chrome users, the simplest approach is to launch an instance of the browser from the command line using the following command:
-
-On OSX:
-
-```shell
-> /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome —disable-web-security
-```
-
-Once Chrome has launch, run
+To run the web client locally, run:
 
 ```shell
 > yarn run serve:web

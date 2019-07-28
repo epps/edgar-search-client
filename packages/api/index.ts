@@ -1,5 +1,6 @@
 import { config } from "dotenv";
 import express from "express";
+import cors from "cors";
 import { PORT } from "./constants";
 import { filingsController } from "./filings.controller";
 
@@ -7,6 +8,8 @@ import { filingsController } from "./filings.controller";
 config();
 
 const app = express();
+
+app.use(cors());
 
 app.get("/filings", filingsController);
 
