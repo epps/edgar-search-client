@@ -1,20 +1,15 @@
 import React from "react";
 
 const ResultsTable = ({ companyDetails, filings, page }) => {
+  const { name, cik } = companyDetails;
   return (
     <div>
       <div className="results">
         <h2>
-          Company:{" "}
-          <span className="text-muted">
-            {companyDetails && companyDetails.name}
-          </span>
+          Company: <span className="text-muted">{name}</span>
         </h2>
         <h3>
-          CIK:{" "}
-          <span className="text-muted">
-            {companyDetails && companyDetails.cik}
-          </span>
+          CIK: <span className="text-muted">{cik}</span>
         </h3>
         <h5>Page {page}</h5>
       </div>

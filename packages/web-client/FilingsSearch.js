@@ -8,15 +8,21 @@ const FilingsSearch = () => {
   const [page, setPage] = useState(1);
   const [filings, setFilings] = useState([]);
   const [companyDetails, setCompanyDetails] = useState(null);
+  const [hasNoResults, setHasNoResults] = useState(true);
 
   async function getFilings() {
     fetch(
       `http://localhost:3000/filings?tickerSymbol=${tickerSymbol}&count=${count}&page=${page}`
     )
       .then(async response => {
-        const { cik, companyName: name, filings } = await response.json();
+        const payload = await response.json();
+        const { success } = payload;
+        if (!success) return setHasNoResults(true);
+
+        const { cik, companyName: name, filings } = payload;
         setFilings(filings);
         setCompanyDetails({ cik, name });
+        setHasNoResults(false);
       })
       .catch(console.error);
   }
@@ -67,7 +73,7 @@ const FilingsSearch = () => {
               Search
             </button>
           </div>
-          {filings.length === 0 ? (
+          {hasNoResults ? (
             ""
           ) : (
             <div className="text-right">
@@ -99,7 +105,7 @@ const FilingsSearch = () => {
         </form>
       </div>
       <div className="col-8">
-        {filings.length === 0 ? (
+        {hasNoResults ? (
           <div className="text-center">
             <h2>No Results</h2>
             <p className="text-muted">
